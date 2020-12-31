@@ -19,9 +19,6 @@ workflows:
           include: true
           source: true
       cancel_previous_builds: false
-      scripts:
-        - echo 'previous step'
-
 
         artifacts:
           - build/**/outputs/**/*.aab

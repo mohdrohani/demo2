@@ -21,8 +21,7 @@ workflows:
       cancel_previous_builds: false
       scripts:
         - echo 'previous step'
-        mkdir -p test-results
-        flutter test --machine > test-results/flutter.json
+
 
         artifacts:
           - build/**/outputs/**/*.aab

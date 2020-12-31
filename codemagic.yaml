@@ -22,8 +22,8 @@ workflows:
       scripts:
         - echo 'previous step'
 
-          script: |
-              mkdir -p test-results
+
+          mkdir -p test-results
               flutter test --machine > test-results/flutter.json
             test_report: test-results/flutter.json
         artifacts:

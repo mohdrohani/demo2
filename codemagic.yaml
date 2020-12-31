@@ -1,10 +1,31 @@
-# Check out https://docs.codemagic.io/getting-started/yaml/ for more information
-
 workflows:
-  flutter-package:
-    name: Flutter or Dart Package
+  my-workflow:
+    name: My workflow name
+    instance_type: mac_mini
+    max_build_duration: 60
     environment:
-      flutter: dev
-    scripts:
-      - flutter packages pub get
-      - flutter test
+      vars:
+        PUBLIC_ENV_VAR: "value here"
+      flutter: stable
+      xcode: latest
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+      cancel_previous_builds: false
+      scripts:
+        - ...
+        artifacts:
+          - build/**/outputs/**/*.aab
+        publishing:
+          email:
+            recipients:
+              - mohd_rohani@hotmail.com
+          scripts:
+            - echo 'Post-publish script'

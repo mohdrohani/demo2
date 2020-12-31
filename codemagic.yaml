@@ -20,11 +20,5 @@ workflows:
           source: true
       cancel_previous_builds: false
 
-        artifacts:
-          - build/**/outputs/**/*.aab
-        publishing:
-          email:
-            recipients:
-              - mohd_rohani@hotmail.com
-          scripts:
-            - echo 'Post-publish script'
+
+
